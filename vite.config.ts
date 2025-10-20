@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // 💡 IMPORTANT: Replace <YOUR-REPO-NAME> with the actual name of your GitHub repository.
-const base_path = '/<YOUR-REPO-NAME>/';
+const base_path = '/Fortunate-ak/quick-buy-engine/';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
