@@ -44,7 +44,7 @@ const ProductDetail = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-[60vh] bg-background">
         <Navbar cartItemCount={getTotalItems()} />
         <div className="container mx-auto px-4 py-8">
           <p className="text-muted-foreground">Loading product...</p>
@@ -55,7 +55,7 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-[60vh] bg-background">
         <Navbar cartItemCount={getTotalItems()} />
         <div className="container mx-auto px-4 py-8">
           <p className="text-muted-foreground">Product not found</p>
@@ -65,29 +65,29 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-[60vh] bg-background">
       <Navbar cartItemCount={getTotalItems()} />
       
-      <div className="container mx-auto px-4 py-8">
-        <Button variant="ghost" onClick={() => navigate(-1)} className="mb-6">
+      <div className="container mx-auto px-4 py-6">
+        <Button variant="ghost" onClick={() => navigate(-1)} className="mb-4">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back
         </Button>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           <div>
             <img 
               src={product.image_url || ""} 
               alt={product.name}
-              className="w-full rounded-lg"
+              className="w-full h-32 object-cover rounded-lg"
             />
           </div>
 
           <div>
-            <h1 className="text-4xl font-bold text-foreground mb-4">{product.name}</h1>
-            <p className="text-3xl font-bold text-primary mb-4">${Number(product.price).toFixed(2)}</p>
+            <h1 className="text-3xl font-bold text-foreground mb-3">{product.name}</h1>
+            <p className="text-2xl font-bold text-primary mb-3">${Number(product.price).toFixed(2)}</p>
             
-            <div className="mb-6">
+            <div className="mb-4">
               <p className="text-muted-foreground mb-2">Category: {product.category}</p>
               <p className="text-muted-foreground">
                 {product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}

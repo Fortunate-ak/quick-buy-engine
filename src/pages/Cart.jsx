@@ -11,12 +11,12 @@ const Cart = () => {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-[60vh] bg-background">
         <Navbar cartItemCount={0} />
-        <div className="container mx-auto px-4 py-8">
-          <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
+        <div className="max-w-5xl mx-auto px-4 py-6">
+          <h1 className="text-2xl font-bold mb-6">Shopping Cart</h1>
           <Card>
-            <CardContent className="py-12 text-center">
+            <CardContent className="py-8 text-center">
               <p className="text-muted-foreground mb-4">Your cart is empty</p>
               <Button onClick={() => navigate("/")}>Continue Shopping</Button>
             </CardContent>
@@ -27,14 +27,14 @@ const Cart = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-[60vh] bg-background">
       <Navbar cartItemCount={getTotalItems()} />
       
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
+      <div className="container mx-auto px-4 py-6">
+        <h1 className="text-2xl font-bold mb-6">Shopping Cart</h1>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-4">
+        <div className="grid lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 space-y-3">
             {items.map((item) => (
               <Card key={item.id}>
                 <CardContent className="p-4">
@@ -42,7 +42,7 @@ const Cart = () => {
                     <img 
                       src={item.image_url} 
                       alt={item.name}
-                      className="w-24 h-24 object-cover rounded"
+                      className="w-14 h-14 object-cover rounded-md"
                     />
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg">{item.name}</h3>

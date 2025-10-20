@@ -53,16 +53,16 @@ const Index = () => {
   const categories = Array.from(new Set(products?.map((p) => p.category).filter(Boolean)));
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-[60vh] bg-background">
       <Navbar cartItemCount={getTotalItems()} />
       
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Electronics & IT Products</h1>
+      <div className="container mx-auto px-4 py-6">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-foreground mb-2">Electronics & IT Products</h1>
           <p className="text-muted-foreground">Discover our latest collection of tech products</p>
         </div>
 
-        <div className="mb-6 flex flex-col sm:flex-row gap-4">
+        <div className="mb-4 flex flex-col sm:flex-row gap-3">
           <Input
             placeholder="Search products..."
             value={searchQuery}
@@ -85,11 +85,11 @@ const Index = () => {
         </div>
 
         {isLoading ? (
-          <div className="text-center py-12">
+          <div className="text-center py-8">
             <p className="text-muted-foreground">Loading products...</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredProducts?.map((product) => (
               <ProductCard
                 key={product.id}

@@ -165,12 +165,12 @@ const Admin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-[60vh] bg-background">
       <Navbar cartItemCount={getTotalItems()} />
       
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Product Management</h1>
+      <div className="container mx-auto px-4 py-6">
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-bold">Product Management</h1>
           
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
@@ -289,7 +289,7 @@ const Admin = () => {
                         <img 
                           src={product.image_url} 
                           alt={product.name}
-                          className="w-12 h-12 object-cover rounded"
+                          className="w-8 h-8 object-cover rounded"
                         />
                       </TableCell>
                       <TableCell className="font-medium">{product.name}</TableCell>

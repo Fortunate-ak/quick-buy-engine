@@ -7,23 +7,23 @@ export const ProductCard = ({ id, name, description, price, image_url, stock, on
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
       <Link to={`/product/${id}`}>
-        <img 
+          <img 
           src={image_url} 
           alt={name}
-          className="w-full h-48 object-cover"
+          className="w-full h-24 object-cover"
         />
       </Link>
-      <CardHeader>
-        <CardTitle className="line-clamp-1">{name}</CardTitle>
-        <CardDescription className="line-clamp-2">{description}</CardDescription>
+      <CardHeader className="p-3">
+        <CardTitle className="line-clamp-1 text-base">{name}</CardTitle>
+        <CardDescription className="line-clamp-2 text-sm">{description}</CardDescription>
       </CardHeader>
-      <CardContent>
-        <p className="text-2xl font-bold text-primary">${price.toFixed(2)}</p>
-        <p className="text-sm text-muted-foreground mt-1">
+      <CardContent className="p-3 pt-0">
+        <p className="text-lg font-bold text-primary">${price.toFixed(2)}</p>
+        <p className="text-xs text-muted-foreground mt-0.5">
           {stock > 0 ? `${stock} in stock` : "Out of stock"}
         </p>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="p-3 pt-0">
         <Button 
           onClick={() => onAddToCart(id)} 
           disabled={stock === 0}
