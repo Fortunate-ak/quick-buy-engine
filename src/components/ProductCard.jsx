@@ -3,17 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 
-interface ProductCardProps {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image_url: string;
-  stock: number;
-  onAddToCart: (id: string) => void;
-}
-
-export const ProductCard = ({ id, name, description, price, image_url, stock, onAddToCart }: ProductCardProps) => {
+export const ProductCard = ({ id, name, description, price, image_url, stock, onAddToCart }) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
       <Link to={`/product/${id}`}>

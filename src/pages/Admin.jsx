@@ -26,22 +26,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image_url: string;
-  category: string;
-  stock: number;
-}
-
 const Admin = () => {
   const { getTotalItems } = useCart();
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [editingProduct, setEditingProduct] = useState(null);
   
   const [formData, setFormData] = useState({
     name: "",
@@ -61,12 +51,12 @@ const Admin = () => {
         .order("created_at", { ascending: false });
       
       if (error) throw error;
-      return data as Product[];
+      return data;
     },
   });
 
   const createMutation = useMutation({
-    mutationFn: async (newProduct: Omit<Product, "id">) => {
+    mutationFn: async (newProduct) => {
       const { data, error } = await supabase
         .from("products")
         .insert([newProduct])
@@ -88,7 +78,7 @@ const Admin = () => {
   });
 
   const updateMutation = useMutation({
-    mutationFn: async ({ id, ...updates }: Partial<Product> & { id: string }) => {
+    mutationFn: async ({ id, ...updates }) => {
       const { data, error } = await supabase
         .from("products")
         .update(updates)
@@ -111,7 +101,7 @@ const Admin = () => {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: async (id: string) => {
+    mutationFn: async (id) => {
       const { error } = await supabase
         .from("products")
         .delete()
@@ -142,7 +132,7 @@ const Admin = () => {
     });
   };
 
-  const handleEdit = (product: Product) => {
+  const handleEdit = (product) => {
     setEditingProduct(product);
     setFormData({
       name: product.name,
@@ -155,7 +145,7 @@ const Admin = () => {
     setIsDialogOpen(true);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
     const productData = {

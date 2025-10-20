@@ -27,7 +27,7 @@ const Index = () => {
     },
   });
 
-  const handleAddToCart = (productId: string) => {
+  const handleAddToCart = (productId) => {
     const product = products?.find((p) => p.id === productId);
     if (product) {
       addItem({
@@ -76,7 +76,7 @@ const Index = () => {
             <SelectContent>
               <SelectItem value="all">All Categories</SelectItem>
               {categories.map((category) => (
-                <SelectItem key={category} value={category!}>
+                <SelectItem key={category} value={category}>
                   {category}
                 </SelectItem>
               ))}
